@@ -8,6 +8,28 @@ fetch('http://localhost:3000/employees')
     .then(response => response.json())
     .then(json => desenhaTabela(json));
 
+function escolhe() {
+    var select = document.getElementById('SelectOpcoes');
+    var value = select.options[select.selectedIndex].value;
+    console.log(value);
+    
+    //1 buscar no html o valor atual do select e armazenar em uma variavel(utilizando document.algumaCOisa)
+    //const select = document.getElementById('carregaSelecao');
+
+
+    //2 printar no console o valor do passo anterior para ter certezaque esta funcionando
+    //3 filtrar tabela????????
+ 
+/*    
+    for (var i=0; i=selectOption.length; i++) {
+        if (selectOption[i].option) {
+            selected = selectOption[i].option;
+        }
+        return selected;
+    }
+*/    
+}    
+
 function desenhaTabela(json) {
     //TODO resolver problema que pode acontecer se o fetch de roles demorar mais que o fetch de employees
     var corpoTabela = '';
@@ -38,6 +60,8 @@ function obterNomeRole(roles, roleId) {
 
     return nomeRole;
 }
+
+
 
 /* Copia da funcao obterNomeROle sem usar variavel no comeco como exemplo de alternativa
 function obterNomeRole(roles, roleId) {

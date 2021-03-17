@@ -1,19 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Lista de Registros</title>
+    </head>
     <script src="script1.js"></script>
-    <header>Listagem</header>
     <body>
-        <table id="employeesTable">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Role</th>
-                    <th>Salary</th>
-                </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
-
+        <header>
+            <h1>Lista de Nomes</h1>                
+        </header>
+            <form name="Seletor">
+                <p>
+                    <label for="SelectOpcoes">Sort by</label>
+                    <select id= "SelectOpcoes" name="SelectOpcoes" SIZE = 1 onchange="escolhe()">
+                        <option selected="selected" value="NomeA">Nome ascendente</option>
+                        <option value="NomeD">Nome descendente</option>
+                        <option value="SalarioA">Salário ascendente</option>
+                        <option value="SalarioD">Salário descendente</option>
+                    </select>
+                </p>       
+            </form>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Role</th>
+                        <th>Salary</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>    
     </body>
 </html>
