@@ -1,4 +1,5 @@
 let roles;
+var employees;
 
 fetch('http://localhost:3000/roles')
     .then(response => response.json())
@@ -6,28 +7,24 @@ fetch('http://localhost:3000/roles')
 
 fetch('http://localhost:3000/employees')
     .then(response => response.json())
-    .then(json => desenhaTabela(json));
+    .then(json => {
+        employees = json;
+        desenhaTabela(json);
+    });
 
 function escolhe() {
     var select = document.getElementById('SelectOpcoes');
     var value = select.options[select.selectedIndex].value;
-    console.log(value);
-    
-    //1 buscar no html o valor atual do select e armazenar em uma variavel(utilizando document.algumaCOisa)
-    //const select = document.getElementById('carregaSelecao');
-
-
-    //2 printar no console o valor do passo anterior para ter certezaque esta funcionando
-    //3 filtrar tabela????????
- 
-/*    
-    for (var i=0; i=selectOption.length; i++) {
-        if (selectOption[i].option) {
-            selected = selectOption[i].option;
-        }
-        return selected;
-    }
-*/    
+    if (value == 'NomeA') {
+        employees.sort((a,b) => a.name > b.name);
+    } else if (value == 'NomeD') {
+        employees.sort((a,b) => a.name < b.name); 
+    } else if (value == 'SalarioA') {
+        employees.sort((a,b) => a.salary > b.salary);
+    } else if (value == 'SalarioD') {
+        employees.sort((a,b) => a.salary < b.salary);
+    } 
+    desenhaTabela(employees);
 }    
 
 function desenhaTabela(json) {
